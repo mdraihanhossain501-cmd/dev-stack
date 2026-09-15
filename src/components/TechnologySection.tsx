@@ -2,7 +2,15 @@ import { useEffect, useState } from "react";
 import TechnologyCard from "./TechnologyCard";
 import type { Technology } from "../types/technology";
 
-const TechnologySection = () => {
+interface TechnologySectionProps {
+  onAdd: (technology: Technology) => void;
+  stack: Technology[];
+}
+
+const TechnologySection = ({
+  onAdd,
+  stack,
+}: TechnologySectionProps) => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
 
   useEffect(() => {
@@ -16,7 +24,9 @@ const TechnologySection = () => {
       <div className="section-container">
         <div className="section-heading">
           <p>Explore Technologies</p>
+
           <h2>Build Your Development Stack</h2>
+
           <span>
             Choose the technologies you want to explore and add them to your
             stack.
@@ -28,8 +38,8 @@ const TechnologySection = () => {
             <TechnologyCard
               key={technology.id}
               technology={technology}
-              onAdd={() => {}}
-              isAdded={false}
+              onAdd={onAdd}
+              isAdded={stack.some((item) => item.id === technology.id)}
             />
           ))}
         </div>
