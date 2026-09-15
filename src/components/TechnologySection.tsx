@@ -12,15 +12,46 @@ const TechnologySection = ({
   stack,
 }: TechnologySectionProps) => {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(new URL("../data/technologies.json", import.meta.url))
-      .then((response) => response.json())
-      .then((data) => setTechnologies(data));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load technologies.");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setTechnologies(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Technology loading error:", error);
+        setLoading(false);
+      });
   }, []);
 
+  if (loading) {
+    return (
+      <section
+        className="technology-section"
+        id="technologies"
+      >
+        <div className="loading">
+          <div className="spinner"></div>
+          <p>Loading technologies...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="technology-section" id="technologies">
+    <section
+      className="technology-section"
+      id="technologies"
+    >
       <div className="section-container">
         <div className="section-heading">
           <p>Explore Technologies</p>
@@ -39,7 +70,9 @@ const TechnologySection = ({
               key={technology.id}
               technology={technology}
               onAdd={onAdd}
-              isAdded={stack.some((item) => item.id === technology.id)}
+              isAdded={stack.some(
+                (item) => item.id === technology.id
+              )}
             />
           ))}
         </div>
