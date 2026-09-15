@@ -327,6 +327,13 @@ body {
   cursor: pointer;
 }
 
+.stack-item img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .add-stack-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -394,6 +401,96 @@ body {
   .your-stack {
     position: static;
   }
+}
+
+.main-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 30px;
+}
+
+.your-stack {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 14px;
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.stack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stack-header p {
+  margin: 0 0 6px;
+  color: #ff5a36;
+  font-weight: 700;
+}
+
+.stack-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.stack-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stack-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+}
+
+.stack-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.stack-item-info strong {
+  font-size: 14px;
+}
+
+.stack-item-info span {
+  color: #777777;
+  font-size: 12px;
+}
+
+.remove-stack-button {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  color: #999999;
+  cursor: pointer;
+}
+
+.remove-stack-button:hover {
+  color: #ff3d3d;
+}
+
+.remove-all-button {
+  border: none;
+  background: transparent;
+  color: #ff5a36;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .footer {
