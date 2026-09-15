@@ -1,45 +1,61 @@
+import logoText from "../assets/logo-text.png";
+
 const Footer = () => {
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <div className="footer-container">
-        <div className="footer-top">
+        <div className="footer-content">
           <div className="footer-brand">
-            <h2>
-              <span>Dev</span> Stack
-            </h2>
+            <img src={logoText} alt="Dev Stack" />
 
             <p>
-              Explore modern development technologies and build
-              your own personalized technology stack.
+              Curated tools, technologies, and resources for developers
+              building modern software.
             </p>
+
+            <div className="footer-social">
+              <a href="#" aria-label="GitHub">
+                GitHub
+              </a>
+
+              <a href="#" aria-label="Twitter">
+                Twitter
+              </a>
+
+              <a href="#" aria-label="LinkedIn">
+                LinkedIn
+              </a>
+            </div>
           </div>
 
           <div className="footer-column">
-            <h3>Product</h3>
+            <h3>PRODUCT</h3>
+
+            <a href="#home">Home</a>
             <a href="#technologies">Technologies</a>
-            <a href="#technologies">Projects</a>
-            <a href="#technologies">Your Stack</a>
+            <a href="#projects">Projects</a>
           </div>
 
           <div className="footer-column">
-            <h3>Company</h3>
+            <h3>COMPANY</h3>
+
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
+            <a href="#careers">Careers</a>
           </div>
 
           <div className="footer-column">
-            <h3>Legal</h3>
-            <a href="#privacy">Privacy</a>
-            <a href="#terms">Terms</a>
+            <h3>LEGAL</h3>
+
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span>
-            © 2026 Dev Stack. All rights reserved.
-          </span>
+          <span>© 2026 Dev Stack. All rights reserved.</span>
 
-          <div className="footer-legal">
+          <div>
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
           </div>
